@@ -38,8 +38,14 @@ def load_data(data_directory):
     return images, labels
 
 
-def inspect_data():
+def load_training_data():
+    images, labels = load_data(TRAIN_DATA_PATH)
+    images28 = [transform.resize(image, (28, 28)) for image in images]
+    images28 = rgb2gray(np.array(images28))
+    return images28, labels
 
+
+def inspect_data():
     image_data, label_data = load_data(TRAIN_DATA_PATH)
     images = np.array(image_data)
     labels = np.array(label_data)
