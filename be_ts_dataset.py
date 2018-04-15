@@ -15,7 +15,7 @@ TRAIN_DATA_PATH = os.path.join(ROOT_PATH, 'traffic_signs/Training')
 TEST_DATA_PATH = os.path.join(ROOT_PATH, 'traffic_signs/Testing')
 
 
-def load_data(data_directory):
+def load_raw_data(data_directory):
     directories = [
         d for d in os.listdir(data_directory)
         if os.path.isdir(os.path.join(data_directory, d))
@@ -38,15 +38,15 @@ def load_data(data_directory):
     return images, labels
 
 
-def load_training_data():
-    images, labels = load_data(TRAIN_DATA_PATH)
+def load_data(data_directory):
+    images, labels = load_raw_data(data_directory)
     images28 = [transform.resize(image, (28, 28)) for image in images]
     images28 = rgb2gray(np.array(images28))
     return images28, labels
 
 
 def inspect_data():
-    image_data, label_data = load_data(TRAIN_DATA_PATH)
+    image_data, label_data = load_raw_data(TRAIN_DATA_PATH)
     images = np.array(image_data)
     labels = np.array(label_data)
     print('Dimension of images:', images.ndim)
