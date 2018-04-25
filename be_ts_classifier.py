@@ -8,7 +8,7 @@ images28, labels = ds.load_data(ds.TRAIN_DATA_PATH)
 test_images28, test_labels = ds.load_data(ds.TEST_DATA_PATH)
 
 # Initialize placeholders
-x = tf.placeholder(dtype=tf.float32, shape=[None, 28, 28])
+x = tf.placeholder(dtype=tf.float32, shape=[None, 28, 28, 3])
 y = tf.placeholder(dtype=tf.int32, shape=[None])
 
 # Flatten input

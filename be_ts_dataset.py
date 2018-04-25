@@ -41,8 +41,8 @@ def load_raw_data(data_directory):
 def load_data(data_directory):
     images, labels = load_raw_data(data_directory)
     images28 = [transform.resize(image, (28, 28)) for image in images]
-    images28 = rgb2gray(np.array(images28))
-    return images28, labels
+    # images28 = rgb2gray(np.array(images28))
+    return np.array(images28, dtype=np.float32), np.array(labels)
 
 
 def inspect_data():
