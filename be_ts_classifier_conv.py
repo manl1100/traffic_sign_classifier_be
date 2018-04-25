@@ -131,6 +131,7 @@ def main(unused_argv):
     eval_results = traffic_sign_classifier.evaluate(input_fn=eval_input_fn)
     print(eval_results)
     # >> {'accuracy': 0.85833335, 'loss': 0.5191961, 'global_step': 30400}
+    # >> {'accuracy': 0.9253968, 'loss': 0.2948123, 'global_step': 80400}
 
 
 if __name__ == '__main__':
